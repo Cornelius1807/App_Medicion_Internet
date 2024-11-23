@@ -9,7 +9,7 @@ document.getElementById("start-test").addEventListener("click", async () => {
     pingElem.textContent = "Calculando...";
 
     try {
-        const response = await fetch("https://<URL_BACKEND>/start-test");
+        const response = await fetch("https://appmedicioninternet.rj.r.appspot.com/start-test");
         const data = await response.json();
 
         if (response.ok) {
