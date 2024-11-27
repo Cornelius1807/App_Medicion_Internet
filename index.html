@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medidor de Calidad de Internet</title>
+    <title>Speed Test</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Medidor de Calidad de Internet</h1>
-        <p>Haz clic en el botón para iniciar la prueba</p>
-        <button id="start-test">Iniciar Prueba</button>
-        <div id="results">
-            <h2>Resultados:</h2>
-            <p><strong>Velocidad de descarga:</strong> <span id="download-speed">-</span> Mbps</p>
-            <p><strong>Velocidad de subida:</strong> <span id="upload-speed">-</span> Mbps</p>
-            <p><strong>Latencia:</strong> <span id="latency">-</span> ms</p>
+        <h1>Test de Velocidad de Internet</h1>
+        <h2>Comienza tu prueba ahora</h2>
+        <button id="start-test">Iniciar prueba</button>
+
+        <div id="loading" class="loading">
+            <div class="loader"></div>
+            <p>Cargando...</p>
+        </div>
+
+        <div id="results" class="results">
+            <p><strong>Velocidad de descarga: </strong><span id="download-speed">-</span></p>
+            <p><strong>Velocidad de carga: </strong><span id="upload-speed">-</span></p>
+            <p><strong>Ping: </strong><span id="ping">-</span></p>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
