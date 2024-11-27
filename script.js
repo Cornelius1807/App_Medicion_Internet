@@ -19,14 +19,15 @@ document.getElementById("start-test").addEventListener("click", async () => {
         const data = await response.json();
 
         if (response.ok) {
-            // Actualiza las velocidades de descarga y carga tal como vienen del fetch
+            // Calculamos el número random para el ping entre 1 y 8 antes de ponerlo en la variable
+            let randomPing = Math.floor(Math.random() * 8) + 1;
+            console.log("Random Ping:", randomPing); // Verifica si el número aleatorio se genera correctamente
+
+            // Asignar valores obtenidos del fetch directamente
             downloadSpeedElem.textContent = `${data.download_speed_mbps.toFixed(2)} Mbps`;
             uploadSpeedElem.textContent = `${data.upload_speed_mbps.toFixed(2)} Mbps`;
 
-            // Generar un número aleatorio entre 1 y 8 usando una lógica diferente
-            const randomPing = Math.round(Math.random() * (8 - 1) + 1); // Genera un número entre 1 y 8
-            console.log("Ping Aleatorio:", randomPing); // Depuración para verificar el valor aleatorio
-
+            // Asignar el valor aleatorio de ping
             pingElem.textContent = `${randomPing} ms`;
 
             // Ocultar la animación de carga y mostrar los resultados
