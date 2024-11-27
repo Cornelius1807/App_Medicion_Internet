@@ -47,6 +47,10 @@ h1, h2 {
 .loading {
     display: none;
     margin-top: 20px;
+    display: flex;              
+    justify-content: center;    
+    align-items: center;       
+    height: 100px;              
 }
 
 .loader {
@@ -62,3 +66,4 @@ h1, h2 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
