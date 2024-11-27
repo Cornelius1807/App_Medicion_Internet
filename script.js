@@ -23,9 +23,9 @@ document.getElementById("start-test").addEventListener("click", async () => {
             downloadSpeedElem.textContent = `${data.download_speed_mbps.toFixed(2)} Mbps`;
             uploadSpeedElem.textContent = `${data.upload_speed_mbps.toFixed(2)} Mbps`;
 
-            // Generar un número aleatorio entre 1 y 8 para el ping
-            const randomPing = Math.floor(Math.random() * 8) + 1;
-            console.log("Random Ping:", randomPing); // Depuración para verificar el valor aleatorio
+            // Generar un número aleatorio entre 1 y 8 usando una lógica diferente
+            const randomPing = Math.round(Math.random() * (8 - 1) + 1); // Genera un número entre 1 y 8
+            console.log("Ping Aleatorio:", randomPing); // Depuración para verificar el valor aleatorio
 
             pingElem.textContent = `${randomPing} ms`;
 
