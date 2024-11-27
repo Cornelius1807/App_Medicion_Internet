@@ -15,7 +15,6 @@ document.getElementById("start-test").addEventListener("click", async () => {
     pingElem.textContent = "Calculando...";
 
     try {
-        // Realiza la llamada al backend
         const response = await fetch("https://iperf3-flask-284235036257.us-central1.run.app/start-test");
         const data = await response.json();
 
@@ -25,7 +24,10 @@ document.getElementById("start-test").addEventListener("click", async () => {
             uploadSpeedElem.textContent = `${data.upload_speed_mbps.toFixed(2)} Mbps`;
 
             // Generar un número aleatorio entre 1 y 8 para el ping
-            pingElem.textContent = `${Math.floor(Math.random() * 8) + 1} ms`;
+            const randomPing = Math.floor(Math.random() * 8) + 1;
+            console.log("Random Ping:", randomPing); // Depuración para verificar el valor aleatorio
+
+            pingElem.textContent = `${randomPing} ms`;
 
             // Ocultar la animación de carga y mostrar los resultados
             setTimeout(() => {
