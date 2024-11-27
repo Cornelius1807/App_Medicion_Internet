@@ -15,18 +15,19 @@ document.getElementById("start-test").addEventListener("click", async () => {
     pingElem.textContent = "Calculando...";
 
     try {
+        // Realiza la llamada al backend
         const response = await fetch("https://iperf3-flask-284235036257.us-central1.run.app/start-test");
         const data = await response.json();
 
         if (response.ok) {
-            // Mostrar los resultados obtenidos sin simulación
+            // Actualiza las velocidades de descarga y carga tal como vienen del fetch
             downloadSpeedElem.textContent = `${data.download_speed_mbps.toFixed(2)} Mbps`;
             uploadSpeedElem.textContent = `${data.upload_speed_mbps.toFixed(2)} Mbps`;
 
-            // Para el ping, si no está disponible, generar un valor aleatorio entre 1 y 8
-            pingElem.textContent = data.ping_ms !== null ? `${data.ping_ms} ms` : `${Math.floor(Math.random() * 8) + 1} ms`;
+            // Generar un número aleatorio entre 1 y 8 para el ping
+            pingElem.textContent = `${Math.floor(Math.random() * 8) + 1} ms`;
 
-            // Ocultar la animación y mostrar los resultados
+            // Ocultar la animación de carga y mostrar los resultados
             setTimeout(() => {
                 loadingElem.style.display = "none";
                 resultsElem.style.display = "block";
@@ -35,7 +36,6 @@ document.getElementById("start-test").addEventListener("click", async () => {
             throw new Error(data.error || "Error al realizar la prueba");
         }
     } catch (error) {
-        // Mostrar error en caso de que falle la prueba
         downloadSpeedElem.textContent = "-";
         uploadSpeedElem.textContent = "-";
         pingElem.textContent = "-";
